@@ -20,14 +20,16 @@ class AppRouter {
       case Routes.loginScreen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (_) =>getIt<LoginCubit>() ,
+            create: (_) => getIt<LoginCubit>(),
             child: const LoginScreen(),
           ),
         );
       case Routes.getStartScreen:
         return MaterialPageRoute(builder: (context) => const GetStartScreen());
       case Routes.registerScreen:
-        return MaterialPageRoute(builder: (context) => const RegisterScreen());
+        return MaterialPageRoute(
+          builder: (context) => RegisterScreen.blocProvider(),
+        );
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (context) => const HomeScreen());
       case Routes.otpScreen:
