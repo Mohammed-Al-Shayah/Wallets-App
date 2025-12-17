@@ -9,11 +9,13 @@ class WalletSummaryHeader extends StatelessWidget {
     required this.title,
     required this.amountText,
     required this.icon,
+    this.onTapIcon,
   });
 
   final String title;
   final String amountText;
   final IconData icon;
+  final VoidCallback? onTapIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,11 @@ class WalletSummaryHeader extends StatelessWidget {
           ],
         ),
         const Spacer(),
-        WalletIconCircle(icon: icon,backgroundIcon: ColorsManager.gray,),
+        WalletIconCircle(
+          icon: icon,
+          backgroundIcon: ColorsManager.gray,
+          onTapIcon: onTapIcon,
+        ),
       ],
     );
   }

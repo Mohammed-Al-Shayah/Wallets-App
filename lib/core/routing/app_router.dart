@@ -7,10 +7,12 @@ import 'package:wallets/features/auth/logic/otp/cubit/otp_cubit.dart';
 import 'package:wallets/features/auth/logic/register/cubit/register_cubit.dart';
 import 'package:wallets/features/auth/ui/login/login_screen.dart';
 import 'package:wallets/features/get_start/ui/get_start_screen.dart';
+import 'package:wallets/features/home/logic/cubit/home_cubit.dart';
 import 'package:wallets/features/home/ui/home_screen.dart';
 import 'package:wallets/features/onboarding/ui/onboarding_screen.dart';
 import 'package:wallets/features/auth/ui/otp/otp_screen.dart';
 import 'package:wallets/features/auth/ui/register/register_screen.dart';
+import 'package:wallets/features/wallets/ui/wallets_screen.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -36,7 +38,12 @@ class AppRouter {
           ),
         );
       case Routes.homeScreen:
-        return MaterialPageRoute(builder: (context) => const HomeScreen());
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<HomeCubit>()..getWallets(),
+            child: const HomeScreen(),
+          ),
+        );
       case Routes.otpScreen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
@@ -44,6 +51,13 @@ class AppRouter {
             child: const OtpScreen(),
           ),
           settings: settings,
+        );
+      case Routes.walletsScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<HomeCubit>()..getWallets(),
+            child: const WalletsSCreen(),
+          ),
         );
       default:
         return MaterialPageRoute(

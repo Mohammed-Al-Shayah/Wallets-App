@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wallets/features/home/data/wallet_balance_card_data.dart';
+import 'package:wallets/features/home/data/models/wallet_balance_card_data.dart';
 import 'package:wallets/features/home/ui/widgets/wallet_summary_header.dart';
 import 'package:wallets/features/home/ui/widgets/walletbalance_card.dart';
 
@@ -14,6 +14,7 @@ class WalletSummarySection extends StatelessWidget {
     this.padding,
     this.gradientColors,
     this.gradientRotation,
+    this.onTapIcon,
   });
 
   final String title;
@@ -24,15 +25,13 @@ class WalletSummarySection extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final List<Color>? gradientColors;
   final double? gradientRotation;
+  final VoidCallback? onTapIcon;
 
   @override
   Widget build(BuildContext context) {
     final List<Color> colors =
         gradientColors ??
-        const [
-          Color(0xff181818),
-          Color.fromARGB(255, 43, 43, 43),
-        ];
+        const [Color(0xff181818), Color.fromARGB(255, 43, 43, 43)];
 
     return Container(
       width: double.infinity,
@@ -51,6 +50,7 @@ class WalletSummarySection extends StatelessWidget {
               title: title,
               amountText: totalAmountText,
               icon: totalIcon,
+              onTapIcon: onTapIcon,
             ),
             SizedBox(height: 24.h),
             ...cards.map(

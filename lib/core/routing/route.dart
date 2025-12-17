@@ -8,4 +8,6 @@ class Routes {
   static const String settingsScreen = '/settingsScreen';
   static const String registerScreen = '/registerScreen';
   static const String otpScreen = '/otpScreen';
+    static const String walletsScreen = '/walletsScreen';
+
 }

@@ -7,22 +7,27 @@ class WalletIconCircle extends StatelessWidget {
     required this.icon,
     required this.backgroundIcon,
     this.colorIcon,
+    this.onTapIcon,
   });
 
   final IconData icon;
   final Color backgroundIcon;
   final Color? colorIcon;
+  final VoidCallback? onTapIcon;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 48.w,
-      height: 48.h,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24.r),
-        color: backgroundIcon,
+    return InkWell(
+      onTap: onTapIcon,
+      child: Container(
+        width: 48.w,
+        height: 48.h,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(24.r),
+          color: backgroundIcon,
+        ),
+        child: Icon(icon, color: colorIcon),
       ),
-      child: Icon(icon, color: colorIcon),
     );
   }
 }
