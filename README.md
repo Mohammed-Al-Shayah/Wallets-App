@@ -53,6 +53,7 @@ lib/
 │       └── presentation/
 └── main.dart
 
+
 🎯 Purpose
 
 This project was built to showcase my ability to design and implement a real-world financial feature using Flutter, with a strong focus on clean code, architecture, and professional development standards.
