@@ -1,13 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 typedef TokenProvider = Future<String?> Function();
 
 class DioFactory {
-  static Dio create({
-    required String baseUrl,
-    TokenProvider? tokenProvider,
-  }) {
+  static Dio create({required String baseUrl, TokenProvider? tokenProvider}) {
     final Dio dio = Dio(
       BaseOptions(
         baseUrl: baseUrl,
@@ -38,13 +36,15 @@ class DioFactory {
     // Logger فقط في غير الريليز
     if (!kReleaseMode) {
       dio.interceptors.add(
-        LogInterceptor(
+        PrettyDioLogger(
           request: true,
+          requestHeader: true,
           requestBody: true,
-          responseBody: true,
-          // خليها false لتجنب طباعة التوكن
-          requestHeader: false,
           responseHeader: false,
+          responseBody: true,
+          compact: true,
+          maxWidth: 100,
+          logPrint: (obj) => debugPrint(obj.toString()), // لضبط طريقة الطباعة
         ),
       );
     }

@@ -1,0 +1,41 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>تقرير مراجعة الكود</title>
+<style>
+body { font-family: Tahoma, Arial, sans-serif; direction: rtl; }
+h1 { font-size: 20px; }
+h2 { font-size: 16px; margin-top: 16px; }
+li { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<h1>تقرير مختصر عن الكود</h1>
+<p>هذا التقرير يوضح أهم الملاحظات والتحسينات المقترحة بدون تنفيذ أي تعديل على الكود.</p>
+
+<h2>أهم الملاحظات (مرتبة حسب الأهمية)</h2>
+<ul>
+  <li><b>High:</b> في <code>HomeState.copyWith</code> يتم تمرير <code>errorMessage</code> مباشرة بدون الحفاظ على القيمة السابقة، وهذا قد يمسح رسالة الخطأ بالخطأ عند أي استدعاء بدون قيمة.</li>
+  <li><b>Medium:</b> الحقل <code>lastIncomingTransfer</code> نوعه <code>dynamic</code> ويتم عرضه كنسبة مئوية نصيًا؛ إذا كان النوع غير رقمي أو يحتوي على علامة % مسبقًا سيظهر تنسيق غير صحيح.</li>
+  <li><b>Medium:</b> بناء القائمة داخل <code>Column</code> باستخدام <code>map</code> يرسم كل العناصر مرة واحدة؛ إذا زاد عدد المحافظ الأداء سيتأثر. الأفضل استخدام <code>ListView.builder</code>.</li>
+  <li><b>Low:</b> أسماء الموديلات مربكة (<code>Wallets</code> للريسبونس و<code>WalletsModel</code> للعنصر)، وهذا يزيد احتمال الأخطاء.</li>
+  <li><b>Low:</b> توجد تعليقات/نصوص مشوهة بالترميز داخل بعض الملفات، وهذا يربك القراءة.</li>
+</ul>
+
+<h2>أسئلة مهمة قبل تحسينات أعمق</h2>
+<ul>
+  <li>هل <code>monthly_transfers_usd</code> نسبة مئوية أم مبلغ؟</li>
+  <li>هل <code>total_balance_usd</code> محسوب من السيرفر أم يحتاج حساب محلي؟</li>
+</ul>
+
+<h2>تحسينات مقترحة (بدون تنفيذ)</h2>
+<ul>
+  <li>تعديل <code>copyWith</code> ليحافظ على <code>errorMessage</code> إذا لم تُرسل قيمة جديدة.</li>
+  <li>تثبيت أنواع الحقول الرقمية وتحويلها إلى <code>double?</code> قبل العرض.</li>
+  <li>تحويل عرض المحافظ إلى <code>ListView.builder</code> لتحسين الأداء.</li>
+  <li>إعادة تسمية الموديلات إلى أسماء أوضح (مثل <code>WalletsResponse</code> و<code>WalletModel</code>).</li>
+</ul>
+
+<p>إذا بدك، أجهز لك نسخة تنفيذية لهذه التحسينات خطوة بخطوة.</p>
+</body>
+</html>
