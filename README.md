@@ -53,10 +53,6 @@ lib/
 │       └── presentation/
 └── main.dart
 
-📸 Screenshots
-
-Add screenshots or a short screen recording here to showcase the wallet UI and main flows.
-
 🎯 Purpose
 
 This project was built to showcase my ability to design and implement a real-world financial feature using Flutter, with a strong focus on clean code, architecture, and professional development standards.
