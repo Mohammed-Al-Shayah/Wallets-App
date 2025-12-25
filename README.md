@@ -1,16 +1,67 @@
-# wallets
+💳 Wallet App
 
-A new Flutter project.
+A mobile wallet application built with Flutter to manage balances, transactions, and financial activities in a clean and scalable way.
 
-## Getting Started
+🧩 Overview
 
-This project is a starting point for a Flutter application.
+This project is a Flutter-based Wallet application designed to demonstrate real-world mobile development practices.
+It focuses on clean architecture, reliable state management, and secure interaction with backend APIs to handle wallet balances and transactions efficiently.
 
-A few resources to get you started if this is your first Flutter project:
+The app simulates a production-ready financial module that can be integrated into larger systems such as e-commerce, service platforms, or internal company tools.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+🚀 Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Wallet balance display
+
+Transaction history (income & expenses)
+
+Real-time data fetched from APIs
+
+Clean Architecture (UI / Domain / Data separation)
+
+State management with proper loading and error handling
+
+Reusable and scalable UI components
+
+Responsive UI for different screen sizes
+
+🛠️ Technologies & Tools
+
+Flutter & Dart
+
+RESTful APIs
+
+State Management (Riverpod / Bloc / Provider – حسب التنفيذ)
+
+Clean Architecture
+
+Git & GitHub
+
+📂 Project Structure
+
+The project follows a feature-based clean architecture for scalability and maintainability:
+
+lib/
+├── core/
+│   ├── network/
+│   ├── utils/
+│   └── theme/
+├── features/
+│   └── wallet/
+│       ├── data/
+│       ├── domain/
+│       └── presentation/
+└── main.dart
+
+📸 Screenshots
+
+Add screenshots or a short screen recording here to showcase the wallet UI and main flows.
+
+🎯 Purpose
+
+This project was built to showcase my ability to design and implement a real-world financial feature using Flutter, with a strong focus on clean code, architecture, and professional development standards.
+
+👨‍💻 Author
+
+Mohammed AlShayah
+Flutter / Mobile Software Engineer
